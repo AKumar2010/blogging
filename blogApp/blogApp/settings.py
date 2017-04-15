@@ -14,6 +14,12 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#print(__file__)
+#print(os.path.abspath(__file__))
+#print(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
+print(os.path.join(BASE_DIR,'template'))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -117,5 +123,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+'''
+TEMPLATES_PATH=os.path.join(BASE_DIR,'template')
+print(TEMPLATES_PATH)
+
+TempateDir=(TEMPLATES_PATH,
+
+           )
+'''
+
 
 STATIC_URL = '/static/'
