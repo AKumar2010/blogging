@@ -1,9 +1,33 @@
 {% extends "MyBlog/base.html" %}
    {% block title %}{{ post.title }}{% endblock %}
+
+     {% block body  %}
+        {% endblock %}
    {% block content %}
      <h1>{{ post.title }}</h1>
      <p class="date">
        Published {{ post.publish }} by {{ post.author }}
      </p>
      {{ post.body|linebreaks }}
+
+     <p>
+     	<!--  <a href="share/">share this post</a></p><br> -->
+       
+      <form action="." method="post">
+        {% csrf_token %}
+       
+        {{ commentform.as_p}}
+        
+        <input type="submit" name="Post comment" value="Post comment">
+      </form>
+
+
+      {% if added_comments %}
+            {{added_comments.comment_content}}
+
+            {% endif %}
+     
+
+
+      <a href="{% url 'sharePost' post.slug  %}">share</a>
    {% endblock %}

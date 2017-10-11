@@ -2,6 +2,11 @@
 
 
    {% block title %}Experimenting block{% endblock %}
+   {%block anyinfo %}ok characters were and this is to check removed...:)
+    <a href="create-post">Create Post</a>
+
+   {%endblock%}
+
    {% block content %}
      
      {% for post in posts %}
@@ -16,7 +21,34 @@
        </p>
        {{ post.body|truncatewords:30|linebreaks }}
      {% endfor %}
+          
+
+     <div class="pagination"> 
+            <span class="step link">
+      {%if posts.has_previous %}
+         
+        <a href="?page={{posts.previous_page_number}}">Previous</a>
+      {% endif %}
+         
+         page {{posts.number}} of {{paginate.num_pages}}.
+         <!--
+         {% for page in paginate.page_range %}
+        <li {% if page == posts.number %}class="active"{% endif %}>
+          <a href="?page={{ page }}">{{ page }}</a>
+        </li>
+      {% endfor %}
+
+        -->
+
+
+      
+      {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}">Next</a>
+      {% endif %}
+
+    </span>>
+          </div>
 
    {% endblock %}
 
-   {%block anyinfo %}ok characters were removed...:){%endblock%}
+   

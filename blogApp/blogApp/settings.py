@@ -20,7 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(BASE_DIR)
 print(os.path.join(BASE_DIR,'template'))
 
-
+'''Email settings '''
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='4uuuabhi@gmail.com'
+EMAIL_HOST_PASSWORD='Oradev#123'
+EMAIL_USE_TLS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -123,14 +128,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-'''
+
 TEMPLATES_PATH=os.path.join(BASE_DIR,'template')
 print(TEMPLATES_PATH)
 
 TempateDir=(TEMPLATES_PATH,
 
            )
-'''
+
 
 
 STATIC_URL = '/static/'

@@ -7,20 +7,23 @@
    </head>
    <body>
 
+   {% block HomeLink %}
+    <a href="{%url 'post_list' %}"> Home.</a>
+{% endblock %}
+
+
+         {% block body  %}
       <div id="sidebar">
          <h2>My blog</h2>
          <p>This is my blog.</p>
       </div>
-      
+          {% endblock %}
+          
     <div>{%block anyinfo %} some random chars present  {% endblock %}</div>
      <div id="content">
        {% block content %}
        {% endblock %}
      </div>
 
-
-     
-
-     
          </body>
            </html>
