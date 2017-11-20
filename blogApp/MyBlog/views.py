@@ -33,27 +33,21 @@ def post_list(request):
 
 
 def post_details(request,post):
-    all_post=get_object_or_404(Post,slug=post)
+    new_comment=""
+    the_post=get_object_or_404(Post,slug=post)
     #pdb.set_trace()
     if (request.method=='POST'):
         form=CommentForm(request.POST)
-        print(request.user)
-        print("showing commentform : \n " )
-        print(form)
-        print("checking the form validity: \n " )
-        print(form.is_valid())
         if(form.is_valid()):
-            print(form.cleaned_data)
             new_comment=form.save(commit=False)
-            print("printing comments contents \n")
-            #print(new_comment)
-            new_comment.post=all_post
+            new_comment.post=the_post
             new_comment.save()
+        #comment_count=
 
     else:
         form=CommentForm()
     
-    return render(request,'MyBlog/post/detail.html',{'post':all_post,'commentform':form,'added_comments':new_comment})
+    return render(request,'MyBlog/post/detail.html',{'post':the_post,'commentform':form,'added_comments':new_comment})
 
 '''
 def pagination():
