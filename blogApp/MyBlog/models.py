@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 from django.db.models import Manager
 from django.urls import reverse
 from django.utils.text import slugify
+from taggit.managers import TaggableManager
 import pdb
 
 # Create your models here.
 
 
-class PublishedManager(models.Manager):
+class PublishedManager(models.Manager): 
     def get_queryset(self):
         return super(PublishedManager,self).get_queryset().filter()   #we can provide filter as filter(status='draft')
 
@@ -28,6 +29,7 @@ class Post(models.Model):
     status=models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     objects=models.Manager()       #The default manager.Can be used for Post.objects.all()#
     published=PublishedManager()   #The custom manager.Used as Post.published.all()#
+    tags = TaggableManager()
 
 
 

@@ -46,8 +46,10 @@ def post_details(request,post):
 
     else:
         form=CommentForm()
+    all_comment_forthis_post=the_post.comments_for_post.all()
     
-    return render(request,'MyBlog/post/detail.html',{'post':the_post,'commentform':form,'added_comments':new_comment})
+    return render(request,'MyBlog/post/detail.html',{'post':the_post,'commentform':form,'added_comments':new_comment,
+        'all_comments':all_comment_forthis_post})
 
 '''
 def pagination():

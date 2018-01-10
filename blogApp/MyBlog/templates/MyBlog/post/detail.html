@@ -22,11 +22,23 @@
       </form>
 
 
-      {% if added_comments %}
-            {{added_comments.comment_content}}
+        
 
-            {% endif %}
-     
+      {% with total=all_comments.count %}
+        There are {{ total }} comment{{ total|pluralize }} for this post.
+      {% endwith %}
+
+        {% for com in all_comments %}
+         <div>
+          {{forloop.counter}}.
+            <b>commented by: {{com.name}}</b> 
+          {{com.comment_content| linebreaks}}
+         </div>
+        {% empty %}
+         <p>There are no comments yet...<p>
+        {% endfor %}
+        
+         
       </br>
 
       <a href="{% url 'sharePost' post.slug  %}">share</a>
