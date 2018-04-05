@@ -25,8 +25,3 @@ class createPost_form(ModelForm):
 		fields=['title','author',"body","publish","status",]
 
 
-	
-		
-
-
-	
